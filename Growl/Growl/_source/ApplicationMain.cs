@@ -150,7 +150,7 @@ namespace Growl
                             string debug = parameters["/debug"].Value.ToLower();
                             if (debug == "true") debugMode = true;
                             Utility.DebugMode = debugMode;
-                            if (debugMode) MessageBox.Show("growl is now in debug mode");
+                            //if (debugMode) MessageBox.Show("growl is now in debug mode");
                         }
                         if (parameters.ContainsKey("/silent"))
                         {

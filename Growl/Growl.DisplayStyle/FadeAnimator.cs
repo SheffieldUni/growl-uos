@@ -104,20 +104,27 @@ namespace Growl.DisplayStyle
         /// <param name="e">Information about the event</param>
         void form_BeforeShown(object sender, EventArgs e)
         {
-            if (this.finalOpacity == 1.0) this.finalOpacity = MAX_OPACITY;
+            // Hack to catch error when running as scheduled task
+            // TODO: /nogui:true
 
-            double steps = this.fadeInDuration / TIMER_INTERVAL;
+            try
+            {
+                if (this.finalOpacity == 1.0) this.finalOpacity = MAX_OPACITY;
 
-            if (steps > 0)
-            {
-                form.Opacity = 0;
-                this.opacityDelta = this.finalOpacity / steps;
-                this.timer.Start();
+                double steps = this.fadeInDuration / TIMER_INTERVAL;
+
+                if (steps > 0)
+                {
+                    form.Opacity = 0;
+                    this.opacityDelta = this.finalOpacity / steps;
+                    this.timer.Start();
+                }
+                else
+                {
+                    form.Opacity = this.finalOpacity;
+                }
             }
-            else
-            {
-                form.Opacity = this.finalOpacity;
-            }
+            catch { }
         }
 
         /// <summary>

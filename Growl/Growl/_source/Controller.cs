@@ -1101,6 +1101,7 @@ namespace Growl
             {
                 if (display == null) display = this.growlDefaultDisplay;
 
+
                 // check for fullscreen handling
                 if (!paused && (this.AutoPauseFullscreen && this.fullscreenHelper.IsFullScreenAppActive()))
                 {
@@ -1118,6 +1119,11 @@ namespace Growl
                 else
                 {
                     requestInfo.SaveHandlingInfo(String.Format("Displayed using '{0}' {1}", display.Name, (display.IsDefault ? "(" + display.ActualName + ")" : "")));
+                }
+
+                if (ApplicationMain.NoguiMode)
+                {
+                    display = Display.None;
                 }
 
                 display.ProcessNotification(notification, cbInfo, requestInfo);

@@ -24,6 +24,7 @@ namespace Growl
         static Program program;
         static bool appIsAlreadyRunning;
         static bool silentMode;
+        static bool noguiMode;
         static bool loggingEnabled;
         static bool showSettingsOnLaunch;
         static List<InternalNotification> queuedNotifications = new List<InternalNotification>();
@@ -149,7 +150,7 @@ namespace Growl
                             string debug = parameters["/debug"].Value.ToLower();
                             if (debug == "true") debugMode = true;
                             Utility.DebugMode = debugMode;
-                            if (debugMode) MessageBox.Show("growl is now in debug mode");
+                            //if (debugMode) MessageBox.Show("growl is now in debug mode");
                         }
                         if (parameters.ContainsKey("/silent"))
                         {
@@ -157,6 +158,12 @@ namespace Growl
                             if (silent == "true") silentMode = true;
                             if (silentMode)
                                 signalFlag = signalFlag | Signal.Silent;
+                        }
+                        if (parameters.ContainsKey("/nogui"))
+                        {
+                            string nogui = parameters["/nogui"].Value.ToLower();
+                            if (nogui == "true") noguiMode = true;
+
                         }
                         string listenUrlFile = null;
                         if (parameters.ContainsKey("/listenurl")) listenUrlFile = parameters["/listenurl"].Value;
@@ -238,6 +245,18 @@ namespace Growl
             set
             {
                 silentMode = value;
+            }
+        }
+
+        static public bool NoguiMode
+        {
+            get
+            {
+                return noguiMode;
+            }
+            set
+            {
+                noguiMode = value;
             }
         }
 

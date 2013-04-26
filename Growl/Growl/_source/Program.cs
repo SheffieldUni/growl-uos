@@ -73,7 +73,10 @@ namespace Growl
             this.notifyIcon.ContextMenuStrip = this.contextMenu;
             this.notifyIcon.Icon = iconStopped;
             this.notifyIcon.Text = Properties.Resources.NotifyIcon_NotRunning;
-            this.notifyIcon.Visible = true;
+            if (!ApplicationMain.NoguiMode)
+            {
+                this.notifyIcon.Visible = true;
+            }
             this.notifyIcon.DoubleClick += new System.EventHandler(this.notifyIcon_DoubleClick);
             // 
             // contextMenu

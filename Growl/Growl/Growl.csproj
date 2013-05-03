@@ -101,7 +101,9 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MonitorIdentifier.cs" />
+    <Compile Include="MonitorIdentifier.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MonitorIdentifier.Designer.cs">
       <DependentUpon>MonitorIdentifier.cs</DependentUpon>
     </Compile>
@@ -154,7 +156,9 @@
     </Compile>
     <Compile Include="UI\ListControlItem.cs" />
     <Compile Include="UI\ListViewColumnSorter.cs" />
-    <Compile Include="UI\MissedNotificationsWindow.cs" />
+    <Compile Include="UI\MissedNotificationsWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="UI\MissedNotificationsWindow.designer.cs">
       <DependentUpon>MissedNotificationsWindow.cs</DependentUpon>
     </Compile>
@@ -620,11 +624,11 @@
     </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
   -->
 </Project>

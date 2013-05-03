@@ -52,6 +52,7 @@ namespace Growl
 
         private void InitializeComponent()
         {
+
             this.components = new System.ComponentModel.Container();
 
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
@@ -66,94 +67,95 @@ namespace Growl
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 
             this.contextMenu.SuspendLayout();
-
-            // 
-            // notifyIcon
-            // 
-            this.notifyIcon.ContextMenuStrip = this.contextMenu;
-            this.notifyIcon.Icon = iconStopped;
-            this.notifyIcon.Text = Properties.Resources.NotifyIcon_NotRunning;
             if (!ApplicationMain.NoguiMode)
             {
-                this.notifyIcon.Visible = true;
-            }
-            this.notifyIcon.DoubleClick += new System.EventHandler(this.notifyIcon_DoubleClick);
-            // 
-            // contextMenu
-            // 
-            this.contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.settingsToolStripMenuItem,
-            this.pauseGrowlToolStripMenuItem,
-            this.unpauseGrowlToolStripMenuItem,
-            this.muteToolStripMenuItem,
-            this.unmuteToolStripMenuItem,
-            this.checkForUpdatesToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.exitToolStripMenuItem});
-            this.contextMenu.Name = "contextMenu";
-            this.contextMenu.ShowImageMargin = false;
-            this.contextMenu.Size = new System.Drawing.Size(149, 142);
-            // 
-            // settingsToolStripMenuItem
-            // 
-            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
-            this.settingsToolStripMenuItem.Text = Properties.Resources.NotifyIcon_ContextMenu_Settings;
-            this.settingsToolStripMenuItem.Font = new System.Drawing.Font(this.settingsToolStripMenuItem.Font, FontStyle.Bold);
-            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
-            // 
-            // pauseGrowlToolStripMenuItem
-            // 
-            this.pauseGrowlToolStripMenuItem.Name = "pauseGrowlToolStripMenuItem";
-            this.pauseGrowlToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
-            this.pauseGrowlToolStripMenuItem.Text = Properties.Resources.NotifyIcon_ContextMenu_Pause;
-            this.pauseGrowlToolStripMenuItem.Visible = false;
-            this.pauseGrowlToolStripMenuItem.Click += new System.EventHandler(this.pauseGrowlToolStripMenuItem_Click);
-            // 
-            // unpauseGrowlToolStripMenuItem
-            // 
-            this.unpauseGrowlToolStripMenuItem.Name = "unpauseGrowlToolStripMenuItem";
-            this.unpauseGrowlToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
-            this.unpauseGrowlToolStripMenuItem.Text = Properties.Resources.NotifyIcon_ContextMenu_Unpause;
-            this.unpauseGrowlToolStripMenuItem.Visible = false;
-            this.unpauseGrowlToolStripMenuItem.Click += new System.EventHandler(this.unpauseGrowlToolStripMenuItem_Click);
-            // 
-            // muteToolStripMenuItem
-            // 
-            this.muteToolStripMenuItem.Name = "muteToolStripMenuItem";
-            this.muteToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
-            this.muteToolStripMenuItem.Text = Properties.Resources.NotifyIcon_ContextMenu_Mute;
-            this.muteToolStripMenuItem.Visible = false;
-            this.muteToolStripMenuItem.Click += new System.EventHandler(this.muteToolStripMenuItem_Click);
-            // 
-            // unmuteToolStripMenuItem
-            // 
-            this.unmuteToolStripMenuItem.Name = "unmuteToolStripMenuItem";
-            this.unmuteToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
-            this.unmuteToolStripMenuItem.Text = Properties.Resources.NotifyIcon_ContextMenu_Unmute;
-            this.unmuteToolStripMenuItem.Visible = false;
-            this.unmuteToolStripMenuItem.Click += new System.EventHandler(this.unmuteToolStripMenuItem_Click);
-            // 
-            // checkForUpdatesToolStripMenuItem
-            // 
-            this.checkForUpdatesToolStripMenuItem.Name = "checkForUpdatesToolStripMenuItem";
-            this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.checkForUpdatesToolStripMenuItem.Text = Properties.Resources.NotifyIcon_ContextMenu_CheckForUpdates;
-            this.checkForUpdatesToolStripMenuItem.Click += new System.EventHandler(this.checkForUpdatesToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(129, 6);
-            // 
-            // exitToolStripMenuItem
-            // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
-            this.exitToolStripMenuItem.Text = Properties.Resources.NotifyIcon_ContextMenu_Exit;
-            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+                // 
+                // notifyIcon
+                // 
+                this.notifyIcon.ContextMenuStrip = this.contextMenu;
+                this.notifyIcon.Icon = iconStopped;
+                this.notifyIcon.Text = Properties.Resources.NotifyIcon_NotRunning;
 
-            this.contextMenu.ResumeLayout();
+                this.notifyIcon.Visible = true;
+
+                this.notifyIcon.DoubleClick += new System.EventHandler(this.notifyIcon_DoubleClick);
+                // 
+                // contextMenu
+                // 
+                this.contextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+                this.settingsToolStripMenuItem,
+                this.pauseGrowlToolStripMenuItem,
+                this.unpauseGrowlToolStripMenuItem,
+                this.muteToolStripMenuItem,
+                this.unmuteToolStripMenuItem,
+                this.checkForUpdatesToolStripMenuItem,
+                this.toolStripSeparator1,
+                this.exitToolStripMenuItem});
+                this.contextMenu.Name = "contextMenu";
+                this.contextMenu.ShowImageMargin = false;
+                this.contextMenu.Size = new System.Drawing.Size(149, 142);
+                // 
+                // settingsToolStripMenuItem
+                // 
+                this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+                this.settingsToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+                this.settingsToolStripMenuItem.Text = Properties.Resources.NotifyIcon_ContextMenu_Settings;
+                this.settingsToolStripMenuItem.Font = new System.Drawing.Font(this.settingsToolStripMenuItem.Font, FontStyle.Bold);
+                this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
+                // 
+                // pauseGrowlToolStripMenuItem
+                // 
+                this.pauseGrowlToolStripMenuItem.Name = "pauseGrowlToolStripMenuItem";
+                this.pauseGrowlToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+                this.pauseGrowlToolStripMenuItem.Text = Properties.Resources.NotifyIcon_ContextMenu_Pause;
+                this.pauseGrowlToolStripMenuItem.Visible = false;
+                this.pauseGrowlToolStripMenuItem.Click += new System.EventHandler(this.pauseGrowlToolStripMenuItem_Click);
+                // 
+                // unpauseGrowlToolStripMenuItem
+                // 
+                this.unpauseGrowlToolStripMenuItem.Name = "unpauseGrowlToolStripMenuItem";
+                this.unpauseGrowlToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+                this.unpauseGrowlToolStripMenuItem.Text = Properties.Resources.NotifyIcon_ContextMenu_Unpause;
+                this.unpauseGrowlToolStripMenuItem.Visible = false;
+                this.unpauseGrowlToolStripMenuItem.Click += new System.EventHandler(this.unpauseGrowlToolStripMenuItem_Click);
+                // 
+                // muteToolStripMenuItem
+                // 
+                this.muteToolStripMenuItem.Name = "muteToolStripMenuItem";
+                this.muteToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+                this.muteToolStripMenuItem.Text = Properties.Resources.NotifyIcon_ContextMenu_Mute;
+                this.muteToolStripMenuItem.Visible = false;
+                this.muteToolStripMenuItem.Click += new System.EventHandler(this.muteToolStripMenuItem_Click);
+                // 
+                // unmuteToolStripMenuItem
+                // 
+                this.unmuteToolStripMenuItem.Name = "unmuteToolStripMenuItem";
+                this.unmuteToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+                this.unmuteToolStripMenuItem.Text = Properties.Resources.NotifyIcon_ContextMenu_Unmute;
+                this.unmuteToolStripMenuItem.Visible = false;
+                this.unmuteToolStripMenuItem.Click += new System.EventHandler(this.unmuteToolStripMenuItem_Click);
+                // 
+                // checkForUpdatesToolStripMenuItem
+                // 
+                this.checkForUpdatesToolStripMenuItem.Name = "checkForUpdatesToolStripMenuItem";
+                this.checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+                this.checkForUpdatesToolStripMenuItem.Text = Properties.Resources.NotifyIcon_ContextMenu_CheckForUpdates;
+                this.checkForUpdatesToolStripMenuItem.Click += new System.EventHandler(this.checkForUpdatesToolStripMenuItem_Click);
+                // 
+                // toolStripSeparator1
+                // 
+                this.toolStripSeparator1.Name = "toolStripSeparator1";
+                this.toolStripSeparator1.Size = new System.Drawing.Size(129, 6);
+                // 
+                // exitToolStripMenuItem
+                // 
+                this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+                this.exitToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+                this.exitToolStripMenuItem.Text = Properties.Resources.NotifyIcon_ContextMenu_Exit;
+                this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+
+                this.contextMenu.ResumeLayout();
+            }
         }
 
         public void Run()

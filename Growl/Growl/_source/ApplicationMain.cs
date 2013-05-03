@@ -144,13 +144,26 @@ namespace Growl
                             string log = parameters["/log"].Value.ToLower();
                             if (log == "true") loggingEnabled = true;
                         }
+                        bool noguiMode = false;
+                        if (parameters.ContainsKey("/nogui"))
+                        {
+                            string nogui = parameters["/nogui"].Value.ToLower();
+                            if (nogui == "true") noguiMode = true;
+                        }
                         bool debugMode = false;
                         if (parameters.ContainsKey("/debug"))
                         {
                             string debug = parameters["/debug"].Value.ToLower();
                             if (debug == "true") debugMode = true;
                             Utility.DebugMode = debugMode;
-                            //if (debugMode) MessageBox.Show("growl is now in debug mode");
+                            if (!noguiMode)
+                            {
+                                if (debugMode) MessageBox.Show("growl is now in debug mode");
+                            }
+                            else
+                            {
+                                Utility.WriteDebugInfo("Debug mode and running in silent mode");
+                            }
                         }
                         if (parameters.ContainsKey("/silent"))
                         {
@@ -159,12 +172,7 @@ namespace Growl
                             if (silentMode)
                                 signalFlag = signalFlag | Signal.Silent;
                         }
-                        if (parameters.ContainsKey("/nogui"))
-                        {
-                            string nogui = parameters["/nogui"].Value.ToLower();
-                            if (nogui == "true") noguiMode = true;
 
-                        }
                         string listenUrlFile = null;
                         if (parameters.ContainsKey("/listenurl")) listenUrlFile = parameters["/listenurl"].Value;
                         else if (args != null && args.Length == 1) listenUrlFile = args[0];

@@ -25,6 +25,7 @@ namespace Growl
         static bool appIsAlreadyRunning;
         static bool silentMode;
         static bool noguiMode;
+        static bool noautoupdateMode;
         static bool loggingEnabled;
         static bool showSettingsOnLaunch;
         static List<InternalNotification> queuedNotifications = new List<InternalNotification>();
@@ -150,6 +151,12 @@ namespace Growl
                             string nogui = parameters["/nogui"].Value.ToLower();
                             if (nogui == "true") noguiMode = true;
                         }
+                        bool noautoupdateMode = false;
+                        if (parameters.ContainsKey("/noautoupdate"))
+                        {
+                            string nogui = parameters["/noautoupdate"].Value.ToLower();
+                            if (nogui == "true") noautoupdateMode = true;
+                        }
                         bool debugMode = false;
                         if (parameters.ContainsKey("/debug"))
                         {
@@ -265,6 +272,18 @@ namespace Growl
             set
             {
                 noguiMode = value;
+            }
+        }
+
+        static public bool NoautoupdateMode
+        {
+            get
+            {
+                return noautoupdateMode;
+            }
+            set
+            {
+                noautoupdateMode = value;
             }
         }
 

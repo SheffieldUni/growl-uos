@@ -203,11 +203,14 @@ namespace Growl
                 ApplicationMain.ForceGC();
 
                 // auto updater
-                this.updater = new Updater(Application.StartupPath);
-                this.updater.CheckForUpdateComplete += new CheckForUpdateCompleteEventHandler(updater_CheckForUpdateComplete);
-                this.autoUpdateTimer.Interval = 20 * 1000;
-                this.autoUpdateTimer.Tick += new EventHandler(autoUpdateTimer_Tick);
-                this.autoUpdateTimer.Start();
+                if (ApplicationMain.NoautoupdateMode == true)
+                {
+                    this.updater = new Updater(Application.StartupPath);
+                    this.updater.CheckForUpdateComplete += new CheckForUpdateCompleteEventHandler(updater_CheckForUpdateComplete);
+                    this.autoUpdateTimer.Interval = 20 * 1000;
+                    this.autoUpdateTimer.Tick += new EventHandler(autoUpdateTimer_Tick);
+                    this.autoUpdateTimer.Start();
+                }
 
                 // while it may seem strange to call the Detector to see if we are installed, it is the best way
                 // to ensure that plugins/displays see the same values that we do

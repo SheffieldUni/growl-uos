@@ -808,8 +808,10 @@ namespace Growl
                                 nt.Icon = icon;
                         }
                     }
-
-                    HandleForwarding(application, notificationTypes, requestInfo, limitToTheseComputers);
+                    //if (!ApplicationMain.NoforwardregistrationMode)
+                    //{
+                        HandleForwarding(application, notificationTypes, requestInfo, limitToTheseComputers);
+                    //}
                 }
             }
 

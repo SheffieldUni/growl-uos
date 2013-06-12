@@ -26,6 +26,7 @@ namespace Growl
         static bool silentMode;
         static bool noguiMode;
         static bool noautoupdateMode;
+        static bool noforwardregistrationMode;
         static bool loggingEnabled;
         static bool showSettingsOnLaunch;
         static List<InternalNotification> queuedNotifications = new List<InternalNotification>();
@@ -145,17 +146,23 @@ namespace Growl
                             string log = parameters["/log"].Value.ToLower();
                             if (log == "true") loggingEnabled = true;
                         }
-                        bool noguiMode = false;
+                        //bool noguiMode = false;
                         if (parameters.ContainsKey("/nogui"))
                         {
                             string nogui = parameters["/nogui"].Value.ToLower();
                             if (nogui == "true") noguiMode = true;
                         }
-                        bool noautoupdateMode = false;
+                        //bool noautoupdateMode = false;
                         if (parameters.ContainsKey("/noautoupdate"))
                         {
-                            string nogui = parameters["/noautoupdate"].Value.ToLower();
-                            if (nogui == "true") noautoupdateMode = true;
+                            string noautoupdate= parameters["/noautoupdate"].Value.ToLower();
+                            if (noautoupdate == "true") noautoupdateMode = true;
+                        }
+                        //bool noforwardregistrationMode = false;
+                        if (parameters.ContainsKey("/noforwardregistration"))
+                        {
+                            string noforwardregistration = parameters["/noforwardregistration"].Value.ToLower();
+                            if (noforwardregistration == "true") noforwardregistrationMode = true;
                         }
                         bool debugMode = false;
                         if (parameters.ContainsKey("/debug"))
@@ -284,6 +291,18 @@ namespace Growl
             set
             {
                 noautoupdateMode = value;
+            }
+        }
+
+        static public bool NoforwardregistrationMode
+        {
+            get
+            {
+                return noforwardregistrationMode;
+            }
+            set
+            {
+                noforwardregistrationMode = value;
             }
         }
 
